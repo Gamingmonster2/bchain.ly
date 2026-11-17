@@ -62,13 +62,10 @@ Skip this if you want both domains to serve the site independently (the current 
 
 ## 5. Before going live
 
-Replace all placeholder wallet addresses in `assets/js/products.js`:
+Wallet addresses are already set in `assets/js/products.js` from the owner's donation page (`https://donatr.ee/sayfe/`):
 
-```
-REPLACE_WITH_YOUR_BTC_ADDRESS
-REPLACE_WITH_YOUR_ETH_ADDRESS
-REPLACE_WITH_YOUR_USDT_TRC20_ADDRESS
-REPLACE_WITH_YOUR_USDT_ERC20_ADDRESS
-```
+- BTC: `1MZ82X6W6JHNYSjN1xPDyRa4cz1B8RqiGG`
+- ETH / USDT-ERC-20: `0xc6240d79d9341d6e585ca1ddb9b121c8c8a130d4`
+- USDT-TRC-20: `TA2528r9iLeCr33JBv9PKKv4aeyhXn568H`
 
-The modal shows a visible demo warning until these are changed. Remove or change the warning text (`modal.warning` key in `assets/js/i18n.js`) once real addresses are in place.
+Double-check the first and last characters against your wallet app before accepting payments, and test with a small amount. The payment modal now shows a verification note instead of the old demo warning; edit `modal.warning` in `assets/js/i18n.js` to change it.

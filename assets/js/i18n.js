@@ -68,7 +68,7 @@ window.I18N = (function () {
       "modal.copied": "Copied!",
       "modal.amountLabel": "Amount to send",
       "modal.warning":
-        "Demo setup: replace the placeholder wallet address in assets/js/products.js with your real address before going live.",
+        "After sending, copy your transaction hash and contact us to confirm your order. Payments are verified manually.",
 
       "product.cat.gift": "Gift card",
       "product.cat.sub": "Subscription",
@@ -150,7 +150,7 @@ window.I18N = (function () {
       "modal.copy": "نسخ",
       "modal.copied": "تم النسخ!",
       "modal.amountLabel": "المبلغ المطلوب إرساله",
-      "modal.warning": "إعداد تجريبي: استبدل عنوان المحفظة النموذجي في assets/js/products.js بعنوانك الحقيقي قبل النشر.",
+      "modal.warning": "بعد الإرسال، انسخ رقم المعاملة وتواصل معنا لتأكيد طلبك. يتم التحقق من المدفوعات يدويًا.",
 
       "product.cat.gift": "بطاقة هدية",
       "product.cat.sub": "اشتراك",

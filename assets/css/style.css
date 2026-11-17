@@ -739,12 +739,12 @@ html[lang="ar"] body {
   margin-top: 0.35rem;
 }
 
-.demo-warning {
+.payment-note {
   margin-top: 1.25rem;
   padding: 0.85rem;
   border-radius: 8px;
-  background: #fff6e5;
-  color: #8a5b00;
+  background: #f0edff;
+  color: #3b2b8a;
   font-size: 0.82rem;
   line-height: 1.6;
 }

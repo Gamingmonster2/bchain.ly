@@ -1,6 +1,7 @@
-/* Static product catalog + placeholder wallet addresses.
-   Replace every `REPLACE_WITH_YOUR_...` value with your real receiving address
-   before publishing. See DEPLOYMENT.md. */
+/* Static product catalog + receiving wallet addresses.
+   Addresses come from the owner's donation page: https://donatr.ee/sayfe/
+   USDT (ERC-20) uses the same Ethereum address as native ETH.
+   See DEPLOYMENT.md if you change networks or addresses. */
 window.CATALOG = (function () {
   "use strict";
 
@@ -8,22 +9,22 @@ window.CATALOG = (function () {
     {
       id: "btc",
       label: "Bitcoin (BTC)",
-      address: "REPLACE_WITH_YOUR_BTC_ADDRESS",
+      address: "1MZ82X6W6JHNYSjN1xPDyRa4cz1B8RqiGG",
     },
     {
       id: "eth",
       label: "Ethereum (ETH)",
-      address: "REPLACE_WITH_YOUR_ETH_ADDRESS",
+      address: "0xc6240d79d9341d6e585ca1ddb9b121c8c8a130d4",
     },
     {
       id: "usdt-trc20",
       label: "USDT (TRC-20)",
-      address: "REPLACE_WITH_YOUR_USDT_TRC20_ADDRESS",
+      address: "TA2528r9iLeCr33JBv9PKKv4aeyhXn568H",
     },
     {
       id: "usdt-erc20",
       label: "USDT (ERC-20)",
-      address: "REPLACE_WITH_YOUR_USDT_ERC20_ADDRESS",
+      address: "0xc6240d79d9341d6e585ca1ddb9b121c8c8a130d4",
     },
   ];
 

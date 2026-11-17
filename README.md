@@ -23,7 +23,7 @@ Then visit `http://localhost:3000`.
 
 ## Configure before going live
 
-1. **Wallet addresses** — open `assets/js/products.js` and replace every `REPLACE_WITH_YOUR_...` value with your real receiving address for each network.
+1. **Wallet addresses** — already configured from the owner's donation page (`https://donatr.ee/sayfe/`) for BTC, ETH, USDT-TRC20 and USDT-ERC20. Verify them before accepting real payments; edit `assets/js/products.js` if you change wallets.
 2. **Products** — edit the `PRODUCTS` array in the same file (name/description translations live in `assets/js/i18n.js` under keys `product.p1` … `product.p6`).
 3. **Contact** — update `hello@bchain.ly` in `index.html` if needed.
 4. **Legal pages** — the Privacy Policy and Terms links are placeholders (`#`). Add real pages before launch.
