@@ -767,13 +767,21 @@ html[lang="ar"] body {
   margin: 0.9rem 0 0.45rem;
 }
 
-.order-form input {
+.order-form input,
+.order-form textarea {
   width: 100%;
   border: 1px solid #dedbe6;
   border-radius: 8px;
   padding: 0.8rem;
   font-size: 0.85rem;
   background: #faf9fc;
+  font-family: inherit;
+}
+
+.order-form textarea {
+  min-height: 5.5rem;
+  resize: vertical;
+  line-height: 1.5;
 }
 
 .order-form input:focus {

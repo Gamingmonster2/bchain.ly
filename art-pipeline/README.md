@@ -8,9 +8,11 @@ This folder contains the **small, text-only** parts of the image production setu
 
 ## Where to run it
 
+**Chosen environment: RunPod GPU.** Follow [runpod-setup.md](./runpod-setup.md) for the complete step-by-step guide.
+
 | Option | Status on the current machine | Notes |
 |---|---|---|
-| Cloud GPU (RunPod / Vast.ai / Google Colab Pro) | ✅ Recommended | Rent a GPU only while generating. Start from a ComfyUI template image, upload this workflow, download the finished PNGs. |
+| Cloud GPU (RunPod) | ✅ Chosen | Rent a GPU only while generating. Start from a ComfyUI template, upload this workflow, download the finished PNGs. |
 | Local machine (this PC) | ⚠️ Possible but impractical | Intel HD Graphics 530, no CUDA, Python 3.14. CPU-only generation takes many minutes per image and FLUX may not load at all. Use only for small tests at 512px. |
 | Hosted API (Replicate / fal.ai) | ✅ Easy, paid | No setup, but costs per image and needs an account/key. |
 

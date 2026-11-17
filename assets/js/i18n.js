@@ -74,6 +74,8 @@ window.I18N = (function () {
       "modal.emailPlaceholder": "you@example.com",
       "modal.txLabel": "Transaction hash (TXID)",
       "modal.txPlaceholder": "Paste the transaction hash",
+      "modal.requestLabel": "Custom request (optional)",
+      "modal.requestPlaceholder": "Describe the artwork you want: subject, style, colors, size...",
       "modal.submit": "Send order details",
       "modal.submitDone": "Opening your email app. If nothing opens, write to",
 
@@ -163,6 +165,8 @@ window.I18N = (function () {
       "modal.emailPlaceholder": "you@example.com",
       "modal.txLabel": "رقم المعاملة (TXID)",
       "modal.txPlaceholder": "الصق رقم المعاملة هنا",
+      "modal.requestLabel": "طلب مخصص (اختياري)",
+      "modal.requestPlaceholder": "صف القطعة التي تريدها: الموضوع، الأسلوب، الألوان، المقاس...",
       "modal.submit": "إرسال تفاصيل الطلب",
       "modal.submitDone": "جارٍ فتح تطبيق البريد. إذا لم يفتح، أرسل إلى",
 

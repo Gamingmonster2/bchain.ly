@@ -12,6 +12,7 @@
   var orderForm = document.getElementById("order-form");
   var orderEmail = document.getElementById("order-email");
   var orderTx = document.getElementById("order-tx");
+  var orderRequest = document.getElementById("order-request");
   var orderFeedback = document.getElementById("order-feedback");
 
   /* Change this to the inbox where you want to receive orders. */
@@ -126,6 +127,7 @@
     activeProduct = productId;
     activeNetwork = window.CATALOG.networks[0].id;
     if (orderForm) orderForm.reset();
+    if (orderRequest) orderRequest.value = "";
     if (orderFeedback) orderFeedback.textContent = "";
 
     if (modal) {
@@ -198,6 +200,9 @@
       "Buyer email: " + email,
       "Transaction hash: " + tx,
     ];
+
+    var request = orderRequest ? (orderRequest.value || "").trim() : "";
+    if (request) lines.push("Custom request: " + request);
 
     var subject = "Order - " + productName;
     var href =
