@@ -40,6 +40,10 @@ This is intentional for the first sales. Automated delivery can be added later w
 
 > ⚠️ The original template repository does not include a license. Confirm reuse rights with the template owner before commercial publication.
 
+## Image production
+
+See [art-pipeline/README.md](./art-pipeline/README.md) for the open-source generation setup (ComfyUI + FLUX.1-schnell), prompt presets and license notes. The heavy application and model weights are deliberately **not** stored in this repository.
+
 ## Deployment
 
 See [DEPLOYMENT.md](./DEPLOYMENT.md) for Cloudflare Pages setup and custom domain configuration.
