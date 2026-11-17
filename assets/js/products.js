@@ -31,37 +31,37 @@ window.CATALOG = (function () {
   var PRODUCTS = [
     {
       id: "p1",
-      image: "./assets/img/art_01.png",
+      image: "./assets/img/generated/ancient-tragic-mask.svg",
       category: "gift",
       price: { btc: "0.00045 BTC", eth: "0.0065 ETH", "usdt-trc20": "29 USDT", "usdt-erc20": "29 USDT" },
     },
     {
       id: "p2",
-      image: "./assets/img/art_02.png",
+      image: "./assets/img/generated/ancient-amphora.svg",
       category: "sub",
       price: { btc: "0.00078 BTC", eth: "0.011 ETH", "usdt-trc20": "49 USDT", "usdt-erc20": "49 USDT" },
     },
     {
       id: "p3",
-      image: "./assets/img/features-01.png",
+      image: "./assets/img/generated/marble-laurel-capital.svg",
       category: "asset",
       price: { btc: "0.0011 BTC", eth: "0.016 ETH", "usdt-trc20": "79 USDT", "usdt-erc20": "79 USDT" },
     },
     {
       id: "p4",
-      image: "./assets/img/features-02.png",
+      image: "./assets/img/generated/bronze-lyre-medallion.svg",
       category: "service",
       price: { btc: "0.0016 BTC", eth: "0.023 ETH", "usdt-trc20": "99 USDT", "usdt-erc20": "99 USDT" },
     },
     {
       id: "p5",
-      image: "./assets/img/features-03.png",
+      image: "./assets/img/generated/tragic-rosette.svg",
       category: "asset",
       price: { btc: "0.0023 BTC", eth: "0.033 ETH", "usdt-trc20": "149 USDT", "usdt-erc20": "149 USDT" },
     },
     {
       id: "p6",
-      image: "./assets/img/art_04.png",
+      image: "./assets/img/generated/stone-tablet.svg",
       category: "service",
       price: { btc: "0.0031 BTC", eth: "0.045 ETH", "usdt-trc20": "199 USDT", "usdt-erc20": "199 USDT" },
     },
