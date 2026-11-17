@@ -45,7 +45,7 @@ window.I18N = (function () {
       "faq.a1": "Bitcoin, Ethereum (ERC-20) and USDT on TRC-20. More networks can be added on request.",
       "faq.q2": "How do I confirm my payment?",
       "faq.a2":
-        "After sending, copy your transaction hash and send it to us through the contact link in the footer. We verify it on-chain.",
+        "After sending, enter your email and transaction hash in the payment window and tap Send order details. We verify the payment on-chain and email your files.",
       "faq.q3": "Do you refund crypto payments?",
       "faq.a3": "Payments are final once confirmed on the network. Please double-check the address and amount before sending.",
 
@@ -68,7 +68,14 @@ window.I18N = (function () {
       "modal.copied": "Copied!",
       "modal.amountLabel": "Amount to send",
       "modal.warning":
-        "After sending, copy your transaction hash and contact us to confirm your order. Payments are verified manually.",
+        "After sending, fill in your email and transaction hash below. We verify the payment manually and deliver your files to that email.",
+      "modal.orderTitle": "Order details",
+      "modal.emailLabel": "Your email (for delivery)",
+      "modal.emailPlaceholder": "you@example.com",
+      "modal.txLabel": "Transaction hash (TXID)",
+      "modal.txPlaceholder": "Paste the transaction hash",
+      "modal.submit": "Send order details",
+      "modal.submitDone": "Opening your email app. If nothing opens, write to",
 
       "product.cat.gift": "Gift card",
       "product.cat.sub": "Subscription",
@@ -128,7 +135,7 @@ window.I18N = (function () {
       "faq.q1": "ما الشبكات المدعومة؟",
       "faq.a1": "بيتكوين، إيثيريوم (ERC-20) وUSDT على شبكة TRC-20. يمكن إضافة شبكات أخرى عند الطلب.",
       "faq.q2": "كيف أؤكد دفعي؟",
-      "faq.a2": "بعد الإرسال، انسخ رقم المعاملة وأرسله لنا عبر رابط التواصل في التذييل، ونتحقق منه على البلوكشين.",
+      "faq.a2": "بعد الإرسال، أدخل بريدك ورقم المعاملة في نافذة الدفع واضغط «إرسال تفاصيل الطلب»، وسنتحقق من الدفع على البلوكشين ونرسل ملفاتك عبر البريد.",
       "faq.q3": "هل تستردون مدفوعات العملات الرقمية؟",
       "faq.a3": "المدفوعات نهائية بعد تأكيدها على الشبكة. تحقق من العنوان والمبلغ قبل الإرسال.",
 
@@ -150,7 +157,14 @@ window.I18N = (function () {
       "modal.copy": "نسخ",
       "modal.copied": "تم النسخ!",
       "modal.amountLabel": "المبلغ المطلوب إرساله",
-      "modal.warning": "بعد الإرسال، انسخ رقم المعاملة وتواصل معنا لتأكيد طلبك. يتم التحقق من المدفوعات يدويًا.",
+      "modal.warning": "بعد الإرسال، أدخل بريدك ورقم المعاملة في النموذج أدناه. نتحقق من الدفع يدويًا ونرسل ملفاتك إلى بريدك.",
+      "modal.orderTitle": "تفاصيل الطلب",
+      "modal.emailLabel": "بريدك الإلكتروني (لاستلام الملفات)",
+      "modal.emailPlaceholder": "you@example.com",
+      "modal.txLabel": "رقم المعاملة (TXID)",
+      "modal.txPlaceholder": "الصق رقم المعاملة هنا",
+      "modal.submit": "إرسال تفاصيل الطلب",
+      "modal.submitDone": "جارٍ فتح تطبيق البريد. إذا لم يفتح، أرسل إلى",
 
       "product.cat.gift": "بطاقة هدية",
       "product.cat.sub": "اشتراك",
@@ -195,6 +209,10 @@ window.I18N = (function () {
       } else {
         el.textContent = value;
       }
+    });
+
+    document.querySelectorAll("[data-i18n-placeholder]").forEach(function (el) {
+      el.setAttribute("placeholder", t(el.getAttribute("data-i18n-placeholder")));
     });
 
     document.querySelectorAll(".lang-btn").forEach(function (btn) {

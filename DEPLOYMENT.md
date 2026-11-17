@@ -58,6 +58,7 @@ Skip this if you want both domains to serve the site independently (the current 
 - `https://bchain.ly` loads the EN site.
 - The `عربي` switch flips all text to Arabic and sets `<html dir="rtl">`.
 - Opening a product shows the payment modal with network tabs and a copyable address.
+- The modal's order form accepts an email and transaction hash and opens a prepared email to `ORDER_EMAIL`.
 - The support domain resolves to the same project.
 
 ## 5. Before going live
@@ -68,4 +69,6 @@ Wallet addresses are already set in `assets/js/products.js` from the owner's don
 - ETH / USDT-ERC-20: `0xc6240d79d9341d6e585ca1ddb9b121c8c8a130d4`
 - USDT-TRC-20: `TA2528r9iLeCr33JBv9PKKv4aeyhXn568H`
 
-Double-check the first and last characters against your wallet app before accepting payments, and test with a small amount. The payment modal now shows a verification note instead of the old demo warning; edit `modal.warning` in `assets/js/i18n.js` to change it.
+Double-check the first and last characters against your wallet app before accepting payments, and test with a small amount.
+
+Also confirm `ORDER_EMAIL` in `assets/js/main.js` points to a mailbox you actually read. Buyers submit their email and tx hash there; after verifying the payment on-chain, send them the purchased files from that same mailbox.

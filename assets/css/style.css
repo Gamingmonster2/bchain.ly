@@ -749,6 +749,53 @@ html[lang="ar"] body {
   line-height: 1.6;
 }
 
+.order-form {
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid #e9e6f0;
+}
+
+.order-form h3 {
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.order-form label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin: 0.9rem 0 0.45rem;
+}
+
+.order-form input {
+  width: 100%;
+  border: 1px solid #dedbe6;
+  border-radius: 8px;
+  padding: 0.8rem;
+  font-size: 0.85rem;
+  background: #faf9fc;
+}
+
+.order-form input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(38, 0, 252, 0.12);
+}
+
+.order-submit {
+  width: 100%;
+  margin-top: 1.25rem;
+  font-weight: 600;
+}
+
+.order-feedback {
+  min-height: 1.2rem;
+  margin-top: 0.6rem;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: #14915a;
+}
+
 body.modal-open {
   overflow: hidden;
 }

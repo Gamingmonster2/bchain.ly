@@ -9,6 +9,13 @@
   var amountInput = document.getElementById("pay-amount");
   var copyButton = document.getElementById("copy-address");
   var copyFeedback = document.getElementById("copy-feedback");
+  var orderForm = document.getElementById("order-form");
+  var orderEmail = document.getElementById("order-email");
+  var orderTx = document.getElementById("order-tx");
+  var orderFeedback = document.getElementById("order-feedback");
+
+  /* Change this to the inbox where you want to receive orders. */
+  var ORDER_EMAIL = "hello@bchain.ly";
 
   var activeProduct = null;
   var activeNetwork = null;
@@ -110,6 +117,7 @@
     if (addressInput) addressInput.value = network.address;
     if (amountInput) amountInput.value = product.price[network.id] || product.price["usdt-trc20"] || "";
     if (copyFeedback) copyFeedback.textContent = "";
+    if (orderFeedback) orderFeedback.textContent = "";
 
     renderNetworkTabs();
   }
@@ -117,6 +125,8 @@
   function openModal(productId) {
     activeProduct = productId;
     activeNetwork = window.CATALOG.networks[0].id;
+    if (orderForm) orderForm.reset();
+    if (orderFeedback) orderFeedback.textContent = "";
 
     if (modal) {
       modal.hidden = false;
@@ -127,6 +137,7 @@
 
   function closeModal() {
     if (modal) modal.hidden = true;
+    if (orderFeedback) orderFeedback.textContent = "";
     document.body.classList.remove("modal-open");
     activeProduct = null;
     activeNetwork = null;
@@ -160,7 +171,50 @@
     }
   }
 
+  /* ---------- Order by email ---------- */
+
+  function submitOrder(event) {
+    event.preventDefault();
+    if (!orderForm || !orderEmail || !orderTx) return;
+
+    var email = (orderEmail.value || "").trim();
+    var tx = (orderTx.value || "").trim();
+    if (!email || !tx) return;
+
+    var product = findProduct(activeProduct);
+    var network = window.CATALOG.networks.filter(function (n) {
+      return n.id === activeNetwork;
+    })[0];
+    var tr = window.I18N ? window.I18N.t.bind(window.I18N) : function (key) { return key; };
+    var productName = product ? tr("product." + product.id + ".name") : "";
+
+    var lines = [
+      "New order from bchain.ly",
+      "-------------------------",
+      "Product: " + productName,
+      "Network: " + (network ? network.label : ""),
+      "Amount: " + (amountInput ? amountInput.value : ""),
+      "Wallet address: " + (addressInput ? addressInput.value : ""),
+      "Buyer email: " + email,
+      "Transaction hash: " + tx,
+    ];
+
+    var subject = "Order - " + productName;
+    var href =
+      "mailto:" +
+      ORDER_EMAIL +
+      "?subject=" +
+      encodeURIComponent(subject) +
+      "&body=" +
+      encodeURIComponent(lines.join("\n"));
+
+    if (orderFeedback) orderFeedback.textContent = tr("modal.submitDone") + " " + ORDER_EMAIL;
+    window.location.href = href;
+  }
+
   /* ---------- Events ---------- */
+
+  if (orderForm) orderForm.addEventListener("submit", submitOrder);
 
   document.addEventListener("click", function (event) {
     if (event.target.closest("[data-close-modal]")) {

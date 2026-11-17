@@ -250,9 +250,36 @@
 					<input id="pay-amount" type="text" readonly />
 
 					<p class="payment-note" data-i18n="modal.warning">
-						Demo setup: replace the placeholder wallet address in assets/js/products.js with your real address
-						before going live.
+						After sending, copy your transaction hash and contact us to confirm your order. Payments are verified manually.
 					</p>
+
+					<form id="order-form" class="order-form">
+						<h3 data-i18n="modal.orderTitle">Order details</h3>
+						<label for="order-email" data-i18n="modal.emailLabel">Your email (for delivery)</label>
+						<input
+							id="order-email"
+							type="email"
+							required
+							autocomplete="email"
+							data-i18n-placeholder="modal.emailPlaceholder"
+							placeholder="you@example.com"
+						/>
+
+						<label for="order-tx" data-i18n="modal.txLabel">Transaction hash (TXID)</label>
+						<input
+							id="order-tx"
+							type="text"
+							required
+							spellcheck="false"
+							data-i18n-placeholder="modal.txPlaceholder"
+							placeholder="Paste the transaction hash"
+						/>
+
+						<button type="submit" class="primary-button order-submit" data-i18n="modal.submit">
+							Send order details
+						</button>
+						<p class="order-feedback" id="order-feedback" aria-live="polite"></p>
+					</form>
 				</div>
 			</div>
 		</div>

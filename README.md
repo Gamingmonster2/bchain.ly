@@ -8,6 +8,7 @@ Bilingual (English / Arabic) static storefront built on the [elhussary/nft-hub](
 - Arabic RTL layout with a readable Arabic font (Cairo)
 - Static product catalog (6 items) defined in `assets/js/products.js`
 - Crypto payment modal with network tabs (BTC, ETH, USDT-TRC20, USDT-ERC20), copyable wallet address and amount
+- Order form in the modal: buyer submits email + transaction hash, which opens a ready-to-send email with all order details
 - FAQ accordion, responsive layout, AOS scroll animations
 - No build step — plain HTML, CSS and JavaScript, ready for Cloudflare Pages
 
@@ -25,8 +26,17 @@ Then visit `http://localhost:3000`.
 
 1. **Wallet addresses** — already configured from the owner's donation page (`https://donatr.ee/sayfe/`) for BTC, ETH, USDT-TRC20 and USDT-ERC20. Verify them before accepting real payments; edit `assets/js/products.js` if you change wallets.
 2. **Products** — edit the `PRODUCTS` array in the same file (name/description translations live in `assets/js/i18n.js` under keys `product.p1` … `product.p6`).
-3. **Contact** — update `hello@bchain.ly` in `index.html` if needed.
+3. **Order email** — set `ORDER_EMAIL` near the top of `assets/js/main.js` to the inbox where you want order notifications. The footer address in `index.html` should match. The form opens the visitor's mail app with product, network, amount, wallet address, buyer email and tx hash already filled in; you verify the payment on-chain and send the files back to that email.
 4. **Legal pages** — the Privacy Policy and Terms links are placeholders (`#`). Add real pages before launch.
+
+### Delivery flow (manual, no backend)
+
+1. Buyer pays crypto to the displayed address and copies the tx hash.
+2. Buyer enters email + tx hash in the modal and sends the prepared email.
+3. You check the transaction on a block explorer and confirm the amount/network.
+4. You email the finished files (high-res images, license, etc.) to the buyer.
+
+This is intentional for the first sales. Automated delivery can be added later with BTCPay Server or Cloudflare R2 signed links.
 
 > ⚠️ The original template repository does not include a license. Confirm reuse rights with the template owner before commercial publication.
 
