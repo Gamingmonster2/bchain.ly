@@ -8,7 +8,7 @@ This folder contains the **small, text-only** parts of the image production setu
 
 ## Where to run it
 
-**Chosen environment: RunPod GPU.** Follow [runpod-setup.md](./runpod-setup.md) for the complete step-by-step guide.
+**Chosen environment: RunPod GPU.** Follow [runpod-setup.md](./runpod-setup.md) for the complete step-by-step guide. For free/low-cost alternatives and the legality of reselling purchased images, see [sourcing-options.md](./sourcing-options.md).
 
 | Option | Status on the current machine | Notes |
 |---|---|---|
