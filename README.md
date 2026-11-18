@@ -6,7 +6,7 @@ Bilingual (English / Arabic) static storefront built on the [elhussary/nft-hub](
 
 - EN / AR language switcher with full translation of all UI text
 - Arabic RTL layout with a readable Arabic font (Cairo)
-- Static product catalog (10 items) defined in `assets/js/products.js`
+- Static product catalog (12 items) defined in `assets/js/products.js`
 - Crypto payment modal with network tabs (BTC, ETH, USDT-TRC20, USDT-ERC20), copyable wallet address and amount
 - Order form in the modal: buyer submits email + transaction hash, which opens a ready-to-send email with all order details
 - FAQ accordion, responsive layout, AOS scroll animations

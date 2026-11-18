@@ -89,6 +89,18 @@ window.CATALOG = (function () {
       category: "asset",
       price: { btc: "0.0011 BTC", eth: "0.016 ETH", "usdt-trc20": "79 USDT", "usdt-erc20": "79 USDT" },
     },
+    {
+      id: "p11",
+      image: "./assets/img/generated/retro-anime-steak-fries.webp",
+      category: "asset",
+      price: { btc: "0.0011 BTC", eth: "0.016 ETH", "usdt-trc20": "79 USDT", "usdt-erc20": "79 USDT" },
+    },
+    {
+      id: "p12",
+      image: "./assets/img/generated/retro-anime-spaghetti.webp",
+      category: "asset",
+      price: { btc: "0.0011 BTC", eth: "0.016 ETH", "usdt-trc20": "79 USDT", "usdt-erc20": "79 USDT" },
+    },
   ];
 
   return {

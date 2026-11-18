@@ -107,6 +107,12 @@ window.I18N = (function () {
       "product.p10.name": "Libyan Bedla",
       "product.p10.desc":
         "A traditional Libyan Bedla with intricate silver and gold embroidery, folded inside an antique open wooden wardrobe with jewelry resting nearby. Nobody is wearing it — warm moody window light and vintage photorealistic detail.",
+      "product.p11.name": "Retro Anime Steak & Fries",
+      "product.p11.desc":
+        "2D retro anime illustration of a juicy grilled steak with green herbs and golden crispy fries on a white ceramic plate, set on a wooden table with rising steam. Vibrant colors, clean lines and a cozy warm atmosphere.",
+      "product.p12.name": "Retro Anime Spaghetti",
+      "product.p12.desc":
+        "2D retro anime illustration of spaghetti in rich red tomato marinara sauce, topped with a fresh basil leaf on a white ceramic plate. Rising steam, vibrant appetizing colors and clean outlines.",
     },
 
     ar: {
@@ -206,6 +212,10 @@ window.I18N = (function () {
       "product.p9.desc": "منظر سينمائي مهيب لكثبان رملية برتقالية ضخمة في الصحراء عند الغروب، مع ظلال صغيرة لقافلة بعيدة في الأفق وظلال طويلة وإحساس قوي بالاتساع والعزلة، بتفاصيل واقعية فائقة.",
       "product.p10.name": "البدلة الليبية",
       "product.p10.desc": "بدلة ليبية تقليدية بتطريز فضي وذهبي دقيق، مطوية داخل خزانة خشبية عتيقة مفتوحة وبجانبها مجوهرات، دون أي شخص يرتديها — بإضاءة دافئة من نافذة جانبية وطابع واقعي قديم فائق التفاصيل.",
+      "product.p11.name": "ستيك وبطاطس بأنمي ريترو",
+      "product.p11.desc": "رسم أنمي ثنائي الأبعاد بأسلوب ريترو لشريحة لحم مشوية عصيرية مرشوشة بالأعشاب الخضراء، مع بطاطس مقلية ذهبية على طبق خزف أبيض فوق طاولة خشبية، وبخار متصاعد. ألوان زاهية وخطوط نظيفة وأجواء دافئة مريحة.",
+      "product.p12.name": "سباغيتي بأنمي ريترو",
+      "product.p12.desc": "رسم أنمي ثنائي الأبعاد بأسلوب ريترو لسباغيتي بصلصة طماطم مارينارا حمراء غنية، تعلوها ورقة ريحان طازجة على طبق خزف أبيض، مع بخار متصاعد وألوان زاهية شهية وخطوط نظيفة.",
     },
   };
 
