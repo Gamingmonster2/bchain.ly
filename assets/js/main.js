@@ -14,6 +14,11 @@
   var orderTx = document.getElementById("order-tx");
   var orderRequest = document.getElementById("order-request");
   var orderFeedback = document.getElementById("order-feedback");
+  var orderError = document.getElementById("order-error");
+  var txExplorer = document.getElementById("tx-explorer");
+  var previewModal = document.getElementById("preview-modal");
+  var previewImage = document.getElementById("preview-image");
+  var previewHint = document.getElementById("preview-hint");
 
   /* Change this to the inbox where you want to receive orders. */
   var ORDER_EMAIL = "hello@bchain.ly";
@@ -35,17 +40,24 @@
       var category = window.I18N ? window.I18N.t("product.cat." + product.category) : product.category;
       var fromLabel = window.I18N ? window.I18N.t("products.from") : "from";
       var buyLabel = window.I18N ? window.I18N.t("products.buy") : "Pay with crypto";
-      var usdPrice = product.price["usdt-trc20"] || Object.keys(product.price)[0];
+      var firstNetwork = Object.keys(product.price)[0];
+      var usdPrice = product.price["usdt-trc20"] || product.price[firstNetwork] || "";
+      var usdHint = product.usd ? "  ·  $" + product.usd : "";
 
       var card = document.createElement("article");
       card.className = "product-card";
       card.setAttribute("data-aos", "fade-up");
       card.innerHTML =
-        '<div class="product-image"><img src="' +
+        '<div class="product-image" role="button" tabindex="0" data-preview="' +
         product.image +
-        '" alt="' +
+        '" data-name="' +
         name +
-        '" /></div>' +
+        '" aria-label="' +
+        name +
+        '">' +
+        '<img src="' + product.image + '" alt="' + name + '" draggable="false" />' +
+        '<span class="zoom-badge">+</span>' +
+        "</div>" +
         '<div class="product-body">' +
         '<span class="product-category">' +
         category +
@@ -61,6 +73,7 @@
         fromLabel +
         " " +
         usdPrice +
+        usdHint +
         "</span>" +
         '<button type="button" class="primary-button product-buy" data-product="' +
         product.id +
@@ -76,9 +89,39 @@
 
   if (grid) {
     grid.addEventListener("click", function (event) {
+      var preview = event.target.closest(".product-image[data-preview]");
+      if (preview) {
+        openPreview(preview.getAttribute("data-preview"), preview.getAttribute("data-name"));
+        return;
+      }
       var button = event.target.closest(".product-buy");
       if (button) openModal(button.getAttribute("data-product"));
     });
+
+    grid.addEventListener("keydown", function (event) {
+      var preview = event.target.closest(".product-image[data-preview]");
+      if (preview && (event.key === "Enter" || event.key === " ")) {
+        event.preventDefault();
+        openPreview(preview.getAttribute("data-preview"), preview.getAttribute("data-name"));
+      }
+    });
+  }
+
+  /* ---------- Watermarked preview lightbox ---------- */
+
+  function openPreview(src, name) {
+    if (!previewModal || !previewImage) return;
+    previewImage.src = src;
+    previewImage.alt = name || "";
+    if (previewHint && window.I18N) previewHint.textContent = window.I18N.t("preview.hint");
+    previewModal.hidden = false;
+    document.body.classList.add("modal-open");
+  }
+
+  function closePreview() {
+    if (previewModal) previewModal.hidden = true;
+    if (previewImage) previewImage.removeAttribute("src");
+    document.body.classList.remove("modal-open");
   }
 
   /* ---------- Payment modal ---------- */
@@ -119,6 +162,11 @@
     if (amountInput) amountInput.value = product.price[network.id] || product.price["usdt-trc20"] || "";
     if (copyFeedback) copyFeedback.textContent = "";
     if (orderFeedback) orderFeedback.textContent = "";
+    if (orderError) orderError.textContent = "";
+    if (txExplorer) {
+      txExplorer.hidden = true;
+      txExplorer.textContent = "";
+    }
 
     renderNetworkTabs();
   }
@@ -175,30 +223,54 @@
 
   /* ---------- Order by email ---------- */
 
+  /* Accept a raw 64-hex hash, a 0x-prefixed hash, or a tx URL pasted from an explorer. */
+  function normalizeTx(raw) {
+    var value = (raw || "").trim();
+    var match = value.match(/(?:\/tx\/|\/transaction\/)([0-9a-fA-Fx]+)/);
+    if (match) value = match[1];
+    value = value.replace(/^0x/, "");
+    return /^[0-9a-fA-F]{64}$/.test(value) ? value : null;
+  }
+
   function submitOrder(event) {
     event.preventDefault();
     if (!orderForm || !orderEmail || !orderTx) return;
 
     var email = (orderEmail.value || "").trim();
-    var tx = (orderTx.value || "").trim();
-    if (!email || !tx) return;
+    var tx = normalizeTx(orderTx.value);
+    var tr = window.I18N ? window.I18N.t.bind(window.I18N) : function (key) { return key; };
+
+    if (orderError) orderError.textContent = "";
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      if (orderError) orderError.textContent = tr("modal.emailInvalid");
+      orderEmail.focus();
+      return;
+    }
+    if (!tx) {
+      if (orderError) orderError.textContent = tr("modal.txInvalid");
+      orderTx.focus();
+      return;
+    }
 
     var product = findProduct(activeProduct);
     var network = window.CATALOG.networks.filter(function (n) {
       return n.id === activeNetwork;
     })[0];
-    var tr = window.I18N ? window.I18N.t.bind(window.I18N) : function (key) { return key; };
     var productName = product ? tr("product." + product.id + ".name") : "";
+    var explorerUrl = network ? network.explorer + tx : "";
 
     var lines = [
       "New order from bchain.ly",
       "-------------------------",
       "Product: " + productName,
+      "Product ID: " + (product ? product.id : ""),
+      "Price: " + (product ? "$" + product.usd : ""),
       "Network: " + (network ? network.label : ""),
-      "Amount: " + (amountInput ? amountInput.value : ""),
+      "Amount to send: " + (amountInput ? amountInput.value : ""),
       "Wallet address: " + (addressInput ? addressInput.value : ""),
       "Buyer email: " + email,
       "Transaction hash: " + tx,
+      "Verify: " + explorerUrl,
     ];
 
     var request = orderRequest ? (orderRequest.value || "").trim() : "";
@@ -213,8 +285,20 @@
       "&body=" +
       encodeURIComponent(lines.join("\n"));
 
+    if (txExplorer && explorerUrl) {
+      txExplorer.href = explorerUrl;
+      txExplorer.textContent = tr("modal.explorer") + " ↗";
+      txExplorer.hidden = false;
+    }
     if (orderFeedback) orderFeedback.textContent = tr("modal.submitDone") + " " + ORDER_EMAIL;
-    window.location.href = href;
+
+    /* Use a temporary link so the shop page is never replaced by the mail app. */
+    var mailLink = document.createElement("a");
+    mailLink.href = href;
+    mailLink.style.display = "none";
+    document.body.appendChild(mailLink);
+    mailLink.click();
+    document.body.removeChild(mailLink);
   }
 
   /* ---------- Events ---------- */
@@ -222,6 +306,10 @@
   if (orderForm) orderForm.addEventListener("submit", submitOrder);
 
   document.addEventListener("click", function (event) {
+    if (event.target.closest("[data-close-preview]")) {
+      closePreview();
+      return;
+    }
     if (event.target.closest("[data-close-modal]")) {
       closeModal();
       return;
@@ -241,10 +329,23 @@
   });
 
   document.addEventListener("keydown", function (event) {
-    if (event.key === "Escape" && modal && !modal.hidden) closeModal();
+    if (event.key !== "Escape") return;
+    if (previewModal && !previewModal.hidden) closePreview();
+    else if (modal && !modal.hidden) closeModal();
   });
 
   if (copyButton) copyButton.addEventListener("click", copyAddress);
+
+  /* Deter casual right-click saving / dragging of preview images. */
+  document.addEventListener("contextmenu", function (event) {
+    if (event.target.closest(".product-image img, .preview-stage img")) event.preventDefault();
+  });
+  document.addEventListener("dragstart", function (event) {
+    if (event.target.closest(".product-image img, .preview-stage img")) event.preventDefault();
+  });
+  document.addEventListener("selectstart", function (event) {
+    if (event.target.closest(".product-image, .preview-stage")) event.preventDefault();
+  });
 
   /* FAQ accordion */
   document.querySelectorAll(".faq-title").forEach(function (item) {
@@ -280,6 +381,9 @@
         if (title) title.textContent = t;
         if (copyButton) copyButton.textContent = window.I18N.t("modal.copy");
         updatePaymentDetails();
+      }
+      if (previewModal && !previewModal.hidden && previewHint) {
+        previewHint.textContent = window.I18N.t("preview.hint");
       }
       if (window.AOS) window.AOS.refresh();
     });

@@ -105,6 +105,10 @@
 				<p class="text-center text-muted products-intro" data-i18n="products.subtitle">
 					Choose an item below and pay with the cryptocurrency that works best for you.
 				</p>
+				<p class="text-center text-muted products-preview-note" data-i18n="products.previewNote">
+					Click an image to enlarge it. Previews are reduced and watermarked; the full-resolution file is
+					emailed after payment.
+				</p>
 
 				<div id="product-grid" class="product-grid"></div>
 			</section>
@@ -175,6 +179,10 @@
 					<div class="faq-item">
 						<div class="faq-title" data-i18n="faq.q3">Do you refund crypto payments?</div>
 						<div class="faq-content" data-i18n="faq.a3">Payments are final once confirmed on the network. Please double-check the address and amount before sending.</div>
+					</div>
+					<div class="faq-item">
+						<div class="faq-title" data-i18n="faq.q4">Can I download the image I see on the site?</div>
+						<div class="faq-content" data-i18n="faq.a4">No. The site shows a reduced, watermarked preview only. After payment is verified, we email the clean full-resolution file to the address you provide.</div>
 					</div>
 				</div>
 			</section>
@@ -283,12 +291,24 @@
 							placeholder="Describe the artwork you want: subject, style, colors, size..."
 						></textarea>
 
+						<p class="form-error" id="order-error" aria-live="polite"></p>
 						<button type="submit" class="primary-button order-submit" data-i18n="modal.submit">
 							Send order details
 						</button>
+						<a id="tx-explorer" class="tx-explorer" href="#" target="_blank" rel="noopener" hidden></a>
 						<p class="order-feedback" id="order-feedback" aria-live="polite"></p>
 					</form>
 				</div>
+			</div>
+		</div>
+
+		<!-- IMAGE PREVIEW LIGHTBOX (watermarked, reduced-size only) -->
+		<div id="preview-modal" class="preview-modal" hidden>
+			<div class="preview-backdrop" data-close-preview></div>
+			<div class="preview-dialog" role="dialog" aria-modal="true" aria-label="Image preview">
+				<button type="button" class="modal-close" data-close-preview aria-label="Close preview">×</button>
+				<div class="preview-stage"><img id="preview-image" alt="" /></div>
+				<p class="preview-hint" id="preview-hint"></p>
 			</div>
 		</div>
 	</body>

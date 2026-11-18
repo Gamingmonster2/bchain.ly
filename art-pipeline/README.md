@@ -30,8 +30,11 @@ This folder contains the **small, text-only** parts of the image production setu
 4. Upload `workflow-flux-schnell.json` from this folder into the ComfyUI UI (Workflow → Open, or drag and drop).
 5. Replace the prompt text in the `CLIPTextEncode` node with one from `prompts.md`.
 6. Queue the prompt, then download the result from `ComfyUI/output/`.
-7. Upscale 4x with Real-ESRGAN (see `prompts.md`), export final PNG/WebP, and place the images in `assets/img/generated/`.
-8. Add or update the product entry in `assets/js/products.js` and its translation keys in `assets/js/i18n.js`.
+7. Upscale 4x with Real-ESRGAN (see `prompts.md`), export the final WebP into `private-originals/pNN.webp`.
+8. Run `python art-pipeline/make-previews.py` to produce the watermarked 720px preview in `assets/img/preview/`.
+9. Add or update the product entry in `assets/js/products.js` and its translation keys in `assets/js/i18n.js`.
+
+`make-previews.py` requires Pillow (`python -m pip install Pillow`). Only the previews are published; `private-originals/` is git-ignored and used for manual email delivery.
 
 ## Rules for this store
 

@@ -1,0 +1,6 @@
+# Full-resolution artwork — kept locally for order delivery, never published.
+private-originals/
+
+# Python helpers
+__pycache__/
+*.pyc

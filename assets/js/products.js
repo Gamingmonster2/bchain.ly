@@ -1,7 +1,9 @@
 /* Static product catalog + receiving wallet addresses.
    Addresses come from the owner's donation page: https://donatr.ee/sayfe/
    USDT (ERC-20) uses the same Ethereum address as native ETH.
-   See DEPLOYMENT.md if you change networks or addresses. */
+   Prices are small USD amounts converted with CoinGecko rates on 19 Nov 2026:
+   BTC ≈ $62,322 · ETH ≈ $1,763.28 · USDT ≈ $1. Re-check before large changes.
+   Images are reduced, watermarked previews; full-size originals stay private. */
 window.CATALOG = (function () {
   "use strict";
 
@@ -10,96 +12,70 @@ window.CATALOG = (function () {
       id: "btc",
       label: "Bitcoin (BTC)",
       address: "1MZ82X6W6JHNYSjN1xPDyRa4cz1B8RqiGG",
+      explorer: "https://blockchain.com/btc/tx/",
     },
     {
       id: "eth",
       label: "Ethereum (ETH)",
       address: "0xc6240d79d9341d6e585ca1ddb9b121c8c8a130d4",
+      explorer: "https://etherscan.io/tx/",
     },
     {
       id: "usdt-trc20",
       label: "USDT (TRC-20)",
       address: "TA2528r9iLeCr33JBv9PKKv4aeyhXn568H",
+      explorer: "https://tronscan.org/#/transaction/",
     },
     {
       id: "usdt-erc20",
       label: "USDT (ERC-20)",
       address: "0xc6240d79d9341d6e585ca1ddb9b121c8c8a130d4",
+      explorer: "https://etherscan.io/tx/",
     },
   ];
 
   var PRODUCTS = [
     {
-      id: "p1",
-      image: "./assets/img/generated/ancient-tragic-mask.svg",
-      category: "gift",
-      price: { btc: "0.00045 BTC", eth: "0.0065 ETH", "usdt-trc20": "29 USDT", "usdt-erc20": "29 USDT" },
-    },
-    {
-      id: "p2",
-      image: "./assets/img/generated/ancient-amphora.svg",
-      category: "sub",
-      price: { btc: "0.00078 BTC", eth: "0.011 ETH", "usdt-trc20": "49 USDT", "usdt-erc20": "49 USDT" },
-    },
-    {
-      id: "p3",
-      image: "./assets/img/generated/marble-laurel-capital.svg",
-      category: "asset",
-      price: { btc: "0.0011 BTC", eth: "0.016 ETH", "usdt-trc20": "79 USDT", "usdt-erc20": "79 USDT" },
-    },
-    {
-      id: "p4",
-      image: "./assets/img/generated/bronze-lyre-medallion.svg",
-      category: "service",
-      price: { btc: "0.0016 BTC", eth: "0.023 ETH", "usdt-trc20": "99 USDT", "usdt-erc20": "99 USDT" },
-    },
-    {
-      id: "p5",
-      image: "./assets/img/generated/tragic-rosette.svg",
-      category: "asset",
-      price: { btc: "0.0023 BTC", eth: "0.033 ETH", "usdt-trc20": "149 USDT", "usdt-erc20": "149 USDT" },
-    },
-    {
-      id: "p6",
-      image: "./assets/img/generated/stone-tablet.svg",
-      category: "service",
-      price: { btc: "0.0031 BTC", eth: "0.045 ETH", "usdt-trc20": "199 USDT", "usdt-erc20": "199 USDT" },
-    },
-    {
       id: "p7",
-      image: "./assets/img/generated/futuristic-parametric-architecture.webp",
+      image: "./assets/img/preview/p7.webp",
       category: "asset",
-      price: { btc: "0.0011 BTC", eth: "0.016 ETH", "usdt-trc20": "79 USDT", "usdt-erc20": "79 USDT" },
+      usd: 3,
+      price: { btc: "0.00004814 BTC", eth: "0.001701 ETH", "usdt-trc20": "3 USDT", "usdt-erc20": "3 USDT" },
     },
     {
       id: "p8",
-      image: "./assets/img/generated/tunisian-desert-film-set.webp",
+      image: "./assets/img/preview/p8.webp",
       category: "asset",
-      price: { btc: "0.0011 BTC", eth: "0.016 ETH", "usdt-trc20": "79 USDT", "usdt-erc20": "79 USDT" },
+      usd: 2.5,
+      price: { btc: "0.00004011 BTC", eth: "0.001418 ETH", "usdt-trc20": "2.5 USDT", "usdt-erc20": "2.5 USDT" },
     },
     {
       id: "p9",
-      image: "./assets/img/generated/libyan-sahara-dunes.webp",
+      image: "./assets/img/preview/p9.webp",
       category: "asset",
-      price: { btc: "0.0011 BTC", eth: "0.016 ETH", "usdt-trc20": "79 USDT", "usdt-erc20": "79 USDT" },
+      usd: 5,
+      price: { btc: "0.00008023 BTC", eth: "0.002836 ETH", "usdt-trc20": "5 USDT", "usdt-erc20": "5 USDT" },
     },
     {
       id: "p10",
-      image: "./assets/img/generated/libyan-bedla-wardrobe.webp",
+      image: "./assets/img/preview/p10.webp",
       category: "asset",
-      price: { btc: "0.0011 BTC", eth: "0.016 ETH", "usdt-trc20": "79 USDT", "usdt-erc20": "79 USDT" },
+      usd: 4,
+      price: { btc: "0.00006418 BTC", eth: "0.002268 ETH", "usdt-trc20": "4 USDT", "usdt-erc20": "4 USDT" },
     },
     {
       id: "p11",
-      image: "./assets/img/generated/retro-anime-steak-fries.webp",
+      image: "./assets/img/preview/p11.webp",
       category: "asset",
-      price: { btc: "0.0011 BTC", eth: "0.016 ETH", "usdt-trc20": "79 USDT", "usdt-erc20": "79 USDT" },
+      usd: 2,
+      price: { btc: "0.00003209 BTC", eth: "0.001134 ETH", "usdt-trc20": "2 USDT", "usdt-erc20": "2 USDT" },
     },
     {
       id: "p12",
-      image: "./assets/img/generated/retro-anime-spaghetti.webp",
+      image: "./assets/img/preview/p12.webp",
       category: "asset",
-      price: { btc: "0.0011 BTC", eth: "0.016 ETH", "usdt-trc20": "79 USDT", "usdt-erc20": "79 USDT" },
+      usd: 3.5,
+      price: { btc: "0.00005616 BTC", eth: "0.001985 ETH", "usdt-trc20": "3.5 USDT", "usdt-erc20": "3.5 USDT" },
     },
   ];
 

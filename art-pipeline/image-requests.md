@@ -4,12 +4,19 @@ Use this file to record every image supplied by the owner with its generation pr
 
 ## How to add a new image to the site
 
-1. Copy the image into `assets/img/generated/` with a short English filename.
-2. Add a product entry to `assets/js/products.js` with a new `id` (`p9`, `p10`, …), the `image` path, a category and prices.
-3. Add `product.<id>.name` and `product.<id>.desc` to **both** dictionaries in `assets/js/i18n.js`.
-4. Update the catalog count in `README.md`.
-5. Add a row below with the original prompt and any rights warning.
-6. Commit and push; Cloudflare Pages republishes automatically.
+1. Copy the full-size image into `private-originals/pNN.webp` (this folder is git-ignored and never deployed).
+2. Run `python art-pipeline/make-previews.py` to create the watermarked 720px preview in `assets/img/preview/pNN.webp`.
+3. Add a product entry to `assets/js/products.js` with a new `id` (`p13`, `p14`, …), the preview `image` path, a `usd` price and the converted prices per network.
+4. Add `product.<id>.name` and `product.<id>.desc` to **both** dictionaries in `assets/js/i18n.js`.
+5. Update the catalog count in `README.md`.
+6. Add a row below with the original prompt and any rights warning.
+7. Commit and push; Cloudflare Pages republishes automatically. Keep `private-originals/` locally for delivery.
+
+## Preview policy (19 Nov 2026)
+
+- The six original hand-made SVGs and their products (`p1`–`p6`, gift cards / subscriptions / services) were **removed**. Only the six owner-supplied artworks remain.
+- Published images are 720px previews stamped `© bchain.ly · 18.11.2026 · #pNN` with a repeated diagonal watermark. The full 1024px files stay in `private-originals/` and are emailed after payment.
+- Prices were lowered to about **$2–$5** per artwork (BTC/ETH amounts recalculated from CoinGecko rates on 19 Nov 2026).
 
 ## Log
 
