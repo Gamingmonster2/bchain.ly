@@ -8,7 +8,9 @@ This folder contains the **small, text-only** parts of the image production setu
 
 ## Where to run it
 
-**Chosen environment: RunPod GPU.** Follow [runpod-setup.md](./runpod-setup.md) for the complete step-by-step guide. For free/low-cost alternatives and the legality of reselling purchased images, see [sourcing-options.md](./sourcing-options.md).
+**Fastest free option for the first 8–9 samples:** the public Hugging Face Space [black-forest-labs/FLUX.1-schnell](https://huggingface.co/spaces/black-forest-labs/FLUX.1-schnell) runs FLUX.1-schnell on free ZeroGPU; no local GPU or payment is needed. Model weights are Apache-2.0 and the Space code is MIT, so outputs can be used commercially.
+
+**For larger batches or full control:** RunPod GPU — follow [runpod-setup.md](./runpod-setup.md). For all other free options and resale licensing, see [sourcing-options.md](./sourcing-options.md).
 
 | Option | Status on the current machine | Notes |
 |---|---|---|

@@ -6,6 +6,7 @@ For only 8–9 pieces, generating originals is stronger than reselling someone e
 
 | Option | Cost | Commercial rights | Notes |
 |---|---|---|---|
+| **HF Space: `black-forest-labs/FLUX.1-schnell`** | **Free** (ZeroGPU quota; HF login usually required) | **Model weights Apache-2.0, Space code MIT → commercial use allowed** | https://huggingface.co/spaces/black-forest-labs/FLUX.1-schnell — Gradio UI, no local GPU needed. Defaults: 1024×1024, 4 steps, seed control, size up to 2048, steps up to 50. Best option for a first batch of 8–9 images. |
 | Adobe Firefly | Free tier + paid | Yes for eligible features; check exact plan | Adobe states it does not train Firefly on customer content. IP indemnification is tied to eligible enterprise entitlements, not every free account. |
 | Microsoft Bing Image Creator (DALL·E) | Free with account | Verify Microsoft terms before resale | Quick, but check output rights and whether images are visible/public. |
 | Pollinations.ai | Free API, no signup for basic use | ⚠️ Verify terms | Terms page is JavaScript-rendered; confirm commercial/resale rights in writing before selling outputs. |
@@ -14,7 +15,11 @@ For only 8–9 pieces, generating originals is stronger than reselling someone e
 | Stable Diffusion 3.5 | Free weights | Community license: commercial under $1M annual revenue with registration | Above threshold needs separate license. |
 | GPT Image 2 / Google Nano Banana | Paid API / access-route dependent | Yes under applicable terms | Indemnification and training rules differ by plan and region. |
 
-Sources: Everypixel Journal, "Can You Use AI-Generated Images Commercially? 14 Generators Compared", 16 Oct 2026 — https://journal.everypixel.com/ai-generated-images-commercial-use
+Sources:
+- HF Space metadata: `https://huggingface.co/api/spaces/black-forest-labs/FLUX.1-schnell` → `license: mit`, runtime `zero-a10g`, `gated: false`.
+- Model metadata: `https://huggingface.co/api/models/black-forest-labs/FLUX.1-schnell` → `license: apache-2.0`.
+- Space source: `https://huggingface.co/spaces/black-forest-labs/FLUX.1-schnell/raw/main/app.py` → 1024×1024 default, 4 steps, `guidance_scale=0.0`, up to 2048px and 50 steps.
+- Everypixel Journal, "Can You Use AI-Generated Images Commercially? 14 Generators Compared", 16 Oct 2026 — https://journal.everypixel.com/ai-generated-images-commercial-use
 
 ## 2. The "buy low, sell high" model — what is actually legal
 
