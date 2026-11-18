@@ -95,6 +95,18 @@ window.I18N = (function () {
       "product.p5.desc": "A starter bundle for your first on-chain project.",
       "product.p6.name": "Pro Bundle",
       "product.p6.desc": "Everything in one package at a bundle price.",
+      "product.p7.name": "Parametric Architecture",
+      "product.p7.desc":
+        "Futuristic abstract parametric design in minimalist white concrete, sharp geometric shadows and cinematic lighting. Ultra-detailed photorealistic render — no people or living creatures.",
+      "product.p8.name": "Desert Film Set",
+      "product.p8.desc":
+        "Aerial view of a geometric mud-brick film-set village among palm trees and sand dunes in the Tunisian desert. High-angle cinematic composition, sharp 8k-style detail — no people or living creatures.",
+      "product.p9.name": "Sahara Golden Dunes",
+      "product.p9.desc":
+        "Epic cinematic landscape of massive orange Sahara dunes at golden hour, with tiny distant caravan silhouettes on the horizon, long shadows and a strong sense of vastness and isolation. Hyper-realistic detail.",
+      "product.p10.name": "Libyan Bedla",
+      "product.p10.desc":
+        "A traditional Libyan Bedla with intricate silver and gold embroidery, folded inside an antique open wooden wardrobe with jewelry resting nearby. Nobody is wearing it — warm moody window light and vintage photorealistic detail.",
     },
 
     ar: {
@@ -186,6 +198,14 @@ window.I18N = (function () {
       "product.p5.desc": "حزمة تمهيدية لمشروعك الأول على البلوكشين.",
       "product.p6.name": "الحزمة الاحترافية",
       "product.p6.desc": "كل شيء في حزمة واحدة بسعر مخفض.",
+      "product.p7.name": "عمارة بارامترية",
+      "product.p7.desc": "تصميم بارامتري مجردة مستقبلي بخرسانة بيضاء بسيطة، وظلال هندسية حادة، وإضاءة سينمائية. رسم واقعي فائق التفاصيل — بدون أشخاص أو كائنات حية.",
+      "product.p8.name": "موقع تصوير صحراوي",
+      "product.p8.desc": "لقطة جوية لقرية طينية هندسية بين النخيل والكثبان الرملية في الصحراء التونسية، بتكوين سينمائي عالٍ وتفاصيل حادة — بدون أشخاص أو كائنات حية.",
+      "product.p9.name": "كثبان الصحراء الذهبية",
+      "product.p9.desc": "منظر سينمائي مهيب لكثبان رملية برتقالية ضخمة في الصحراء عند الغروب، مع ظلال صغيرة لقافلة بعيدة في الأفق وظلال طويلة وإحساس قوي بالاتساع والعزلة، بتفاصيل واقعية فائقة.",
+      "product.p10.name": "البدلة الليبية",
+      "product.p10.desc": "بدلة ليبية تقليدية بتطريز فضي وذهبي دقيق، مطوية داخل خزانة خشبية عتيقة مفتوحة وبجانبها مجوهرات، دون أي شخص يرتديها — بإضاءة دافئة من نافذة جانبية وطابع واقعي قديم فائق التفاصيل.",
     },
   };
 

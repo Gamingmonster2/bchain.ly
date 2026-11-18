@@ -65,6 +65,30 @@ window.CATALOG = (function () {
       category: "service",
       price: { btc: "0.0031 BTC", eth: "0.045 ETH", "usdt-trc20": "199 USDT", "usdt-erc20": "199 USDT" },
     },
+    {
+      id: "p7",
+      image: "./assets/img/generated/futuristic-parametric-architecture.webp",
+      category: "asset",
+      price: { btc: "0.0011 BTC", eth: "0.016 ETH", "usdt-trc20": "79 USDT", "usdt-erc20": "79 USDT" },
+    },
+    {
+      id: "p8",
+      image: "./assets/img/generated/tunisian-desert-film-set.webp",
+      category: "asset",
+      price: { btc: "0.0011 BTC", eth: "0.016 ETH", "usdt-trc20": "79 USDT", "usdt-erc20": "79 USDT" },
+    },
+    {
+      id: "p9",
+      image: "./assets/img/generated/libyan-sahara-dunes.webp",
+      category: "asset",
+      price: { btc: "0.0011 BTC", eth: "0.016 ETH", "usdt-trc20": "79 USDT", "usdt-erc20": "79 USDT" },
+    },
+    {
+      id: "p10",
+      image: "./assets/img/generated/libyan-bedla-wardrobe.webp",
+      category: "asset",
+      price: { btc: "0.0011 BTC", eth: "0.016 ETH", "usdt-trc20": "79 USDT", "usdt-erc20": "79 USDT" },
+    },
   ];
 
   return {
