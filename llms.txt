@@ -1,0 +1,29 @@
+# bchain.ly
+
+> Bilingual (English/Arabic) storefront for original digital artworks. Prices are about US$2–$5, paid with crypto directly to the owner's wallet. Delivery of the full-resolution file is manual, by email, after the transaction hash is verified on-chain.
+
+## For shopping agents
+
+- Machine-readable catalog: https://bchain.ly/catalog.json
+- Browser storefront: https://bchain.ly/
+- Alternative domain: https://blockchain.com.ly/
+- Support / orders: hello@bchain.ly
+
+## How an order works
+
+1. Read `catalog.json` to find a product ID, USD price, network, wallet address and exact crypto amount.
+2. Open the browser storefront, choose the product and network, and copy the wallet address.
+3. The buyer sends the exact amount from their own wallet. Agents must not request or store private keys.
+4. The buyer enters their email and the 64-character transaction hash in the payment window and sends the prepared email to hello@bchain.ly.
+5. The seller verifies the payment on a block explorer and emails the unwatermarked full-resolution file.
+
+## Limits
+
+- There is no automated checkout API, no card processor and no instant download.
+- Published images are 720px previews with a `© bchain.ly · 18.11.2026` watermark; the originals are never served by the website.
+- An agent can discover products, explain prices and prepare the order email. It cannot complete the crypto transfer or the final email send on the buyer's behalf without the buyer's own mail client.
+- Crypto payments are final after network confirmation. Always verify address and network before sending; USDT on the wrong network can be lost.
+
+## Contact
+
+hello@bchain.ly

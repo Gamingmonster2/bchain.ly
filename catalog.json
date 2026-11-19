@@ -1,0 +1,111 @@
+{
+  "schema": "bchain.ly/catalog-v1",
+  "updated": "2026-11-19",
+  "merchant": {
+    "name": "bchain.ly",
+    "url": "https://bchain.ly/",
+    "supportEmail": "hello@bchain.ly",
+    "languages": ["en", "ar"],
+    "description": "Bilingual storefront selling original digital artworks, paid directly with crypto."
+  },
+  "checkout": {
+    "type": "manual_crypto",
+    "browserUrl": "https://bchain.ly/#products",
+    "steps": [
+      "Open the browser URL and choose a product.",
+      "Select a network, copy the exact wallet address and send the exact amount.",
+      "Enter buyer email and the 64-character transaction hash in the payment window.",
+      "Send the prepared email to hello@bchain.ly.",
+      "Seller verifies the transaction on-chain and emails the full-resolution, unwatermarked file."
+    ],
+    "automatedCheckout": false,
+    "note": "No automated payment API or card processing. An agent can prepare the order and open the mail app, but a human must send the crypto and the email."
+  },
+  "mediaPolicy": {
+    "publishedImage": "watermarked 720px preview",
+    "fullResolution": "delivered by email after payment verification",
+    "watermark": "© bchain.ly · 18.11.2026"
+  },
+  "networks": [
+    {
+      "id": "btc",
+      "label": "Bitcoin (BTC)",
+      "address": "1MZ82X6W6JHNYSjN1xPDyRa4cz1B8RqiGG",
+      "explorer": "https://blockchain.com/btc/tx/"
+    },
+    {
+      "id": "eth",
+      "label": "Ethereum (ETH)",
+      "address": "0xc6240d79d9341d6e585ca1ddb9b121c8c8a130d4",
+      "explorer": "https://etherscan.io/tx/"
+    },
+    {
+      "id": "usdt-trc20",
+      "label": "USDT (TRC-20)",
+      "address": "TA2528r9iLeCr33JBv9PKKv4aeyhXn568H",
+      "explorer": "https://tronscan.org/#/transaction/"
+    },
+    {
+      "id": "usdt-erc20",
+      "label": "USDT (ERC-20)",
+      "address": "0xc6240d79d9341d6e585ca1ddb9b121c8c8a130d4",
+      "explorer": "https://etherscan.io/tx/"
+    }
+  ],
+  "products": [
+    {
+      "id": "p7",
+      "name": { "en": "Parametric Architecture", "ar": "عمارة بارامترية" },
+      "description": { "en": "Futuristic parametric architecture in white concrete with sharp geometric shadows.", "ar": "تصميم بارامتري مستقبلي بخرسانة بيضاء وظلال هندسية حادة." },
+      "usd": 3,
+      "price": { "btc": "0.00004814 BTC", "eth": "0.001701 ETH", "usdt-trc20": "3 USDT", "usdt-erc20": "3 USDT" },
+      "preview": "https://bchain.ly/assets/img/preview/p7.webp",
+      "productUrl": "https://bchain.ly/#products"
+    },
+    {
+      "id": "p8",
+      "name": { "en": "Desert Film Set", "ar": "موقع تصوير صحراوي" },
+      "description": { "en": "Aerial view of a geometric mud-brick film-set village among palm trees and dunes.", "ar": "لقطة جوية لقرية طينية بين النخيل والكثبان الرملية." },
+      "usd": 2.5,
+      "price": { "btc": "0.00004011 BTC", "eth": "0.001418 ETH", "usdt-trc20": "2.5 USDT", "usdt-erc20": "2.5 USDT" },
+      "preview": "https://bchain.ly/assets/img/preview/p8.webp",
+      "productUrl": "https://bchain.ly/#products"
+    },
+    {
+      "id": "p9",
+      "name": { "en": "Sahara Golden Dunes", "ar": "كثبان الصحراء الذهبية" },
+      "description": { "en": "Massive orange Sahara dunes at golden hour with a tiny distant caravan silhouette.", "ar": "كثبان برتقالية ضخمة عند الغروب مع قافلة بعيدة في الأفق." },
+      "usd": 5,
+      "price": { "btc": "0.00008023 BTC", "eth": "0.002836 ETH", "usdt-trc20": "5 USDT", "usdt-erc20": "5 USDT" },
+      "preview": "https://bchain.ly/assets/img/preview/p9.webp",
+      "productUrl": "https://bchain.ly/#products"
+    },
+    {
+      "id": "p10",
+      "name": { "en": "Libyan Bedla", "ar": "البدلة الليبية" },
+      "description": { "en": "Traditional Libyan Bedla with silver and gold embroidery in an antique wardrobe.", "ar": "بدلة ليبية تقليدية بتطريز فضي وذهبي داخل خزانة عتيقة." },
+      "usd": 4,
+      "price": { "btc": "0.00006418 BTC", "eth": "0.002268 ETH", "usdt-trc20": "4 USDT", "usdt-erc20": "4 USDT" },
+      "preview": "https://bchain.ly/assets/img/preview/p10.webp",
+      "productUrl": "https://bchain.ly/#products"
+    },
+    {
+      "id": "p11",
+      "name": { "en": "Retro Anime Steak & Fries", "ar": "ستيك وبطاطس بأنمي ريترو" },
+      "description": { "en": "Retro 2D anime illustration of grilled steak with herbs and golden fries.", "ar": "رسم أنمي ريترو ثنائي الأبعاد لستيك بالأعشاب وبطاطس ذهبية." },
+      "usd": 2,
+      "price": { "btc": "0.00003209 BTC", "eth": "0.001134 ETH", "usdt-trc20": "2 USDT", "usdt-erc20": "2 USDT" },
+      "preview": "https://bchain.ly/assets/img/preview/p11.webp",
+      "productUrl": "https://bchain.ly/#products"
+    },
+    {
+      "id": "p12",
+      "name": { "en": "Retro Anime Spaghetti", "ar": "سباغيتي بأنمي ريترو" },
+      "description": { "en": "Retro 2D anime illustration of spaghetti with tomato sauce and basil.", "ar": "رسم أنمي ريترو ثنائي الأبعاد لسباغيتي بصلصة الطماطم والريحان." },
+      "usd": 3.5,
+      "price": { "btc": "0.00005616 BTC", "eth": "0.001985 ETH", "usdt-trc20": "3.5 USDT", "usdt-erc20": "3.5 USDT" },
+      "preview": "https://bchain.ly/assets/img/preview/p12.webp",
+      "productUrl": "https://bchain.ly/#products"
+    }
+  ]
+}
