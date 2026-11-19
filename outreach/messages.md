@@ -111,7 +111,14 @@ All 50 domains were checked and are live.
 |---|---|
 | Flat6Labs | ✅ Sent — form returned `success: true` (submitted with name `w` before "Saif" was chosen) |
 | Techstars | ✅ Sent — HubSpot partner form POST returned HTTP 200 + thank-you (name `Saif`) |
-| Wamda | ⛔ Blocked — CAPTCHA image does not load |
+| Animoca Brands | ✅ Sent — Webflow form showed "Thank you! Your submission has been received!" |
+| Wamda | ⛔ CAPTCHA — opened in Chrome for manual solve (name `Saif`, email `w@w.com.ly`) |
+| Startup Grind | ⛔ reCAPTCHA — opened in Chrome for manual solve (name `Saif`, email `w@w.com.ly`) |
 | AstroLabs | ⚠️ Phone-only lead form, no message field — not submitted |
 | 500 Global | ✉️ No form — email `partnerships@500.co` needed |
-| Others | Not contacted yet |
+| Y Combinator | ✉️ No form — only a contact FAQ page |
+| Outlier Ventures | ✉️ No contact form — "apply" only |
+| YZi Labs | ✉️ Only a Monday.com "Direct Investment" form (blocked) |
+| Seedstars / Startupbootcamp / Unreasonable / Index Ventures | ✉️ Newsletter or search forms only — no contact form |
+| Village Capital / SOSV / HAX / On Deck | ⛔ CAPTCHA detected |
+| Others | ⏸️ Paused — desktop browser session disconnected |
