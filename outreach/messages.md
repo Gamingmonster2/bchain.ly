@@ -114,6 +114,10 @@ All 50 domains were checked and are live.
 | Animoca Brands | ✅ Sent — Webflow form showed "Thank you! Your submission has been received!" |
 | Wayra | ⚠️ Form filled and submit clicked — no confirmation page shown |
 | Consensys | ⚠️ Form filled and submit clicked — no confirmation page shown |
+| Berytech | ✅ Sent — success message shown after submit |
+| Cairo Angels / Acasia | ⚠️ "Send Message" clicked — no confirmation page shown |
+| Seedcamp / Brinc / Polygon Labs | ⚠️ Submit clicked, but only newsletter/partial fields were available — low confidence |
+| Seedstars / NEAR / Dragonfly / DIFC / ADGM | ⛔ Form could not be loaded or submitted through the browser |
 | Wamda | ⛔ CAPTCHA — opened in Chrome for manual solve (name `Saif`, email `w@w.com.ly`) |
 | Startup Grind | ⛔ reCAPTCHA — opened in Chrome for manual solve (name `Saif`, email `w@w.com.ly`) |
 | AstroLabs | ⚠️ Phone-only lead form, no message field — not submitted |
