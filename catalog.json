@@ -13,11 +13,19 @@
     "browserUrl": "https://bchain.ly/#products",
     "steps": [
       "Open the browser URL and choose a product.",
-      "Select a network, copy the exact wallet address and send the exact amount.",
+      "Select a network and scan the payment QR code with a wallet app, or copy the exact wallet address and amount.",
+      "Send the exact amount on the selected network.",
       "Enter buyer email and the 64-character transaction hash in the payment window.",
       "Send the prepared email to hello@bchain.ly.",
       "Seller verifies the transaction on-chain and emails the full-resolution, unwatermarked file."
     ],
+    "paymentQr": {
+      "available": true,
+      "btc": "BIP-21 bitcoin: URI including the exact amount",
+      "eth": "ERC-681 ethereum: URI with value in wei",
+      "usdt-erc20": "ERC-681 token transfer URI (USDT contract + recipient + amount)",
+      "usdt-trc20": "plain Tron address; enter the amount manually"
+    },
     "automatedCheckout": false,
     "note": "No automated payment API or card processing. An agent can prepare the order and open the mail app, but a human must send the crypto and the email."
   },

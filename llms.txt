@@ -12,7 +12,7 @@
 ## How an order works
 
 1. Read `catalog.json` to find a product ID, USD price, network, wallet address and exact crypto amount.
-2. Open the browser storefront, choose the product and network, and copy the wallet address.
+2. Open the browser storefront, choose the product and network, then scan the payment QR code with a wallet app (BIP-21 for BTC, ERC-681 for ETH and USDT-ERC20, plain address for USDT-TRC20). Manual copy of address and amount is also available.
 3. The buyer sends the exact amount from their own wallet. Agents must not request or store private keys.
 4. The buyer enters their email and the 64-character transaction hash in the payment window and sends the prepared email to hello@bchain.ly.
 5. The seller verifies the payment on a block explorer and emails the unwatermarked full-resolution file.

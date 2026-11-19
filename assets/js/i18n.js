@@ -68,6 +68,11 @@ window.I18N = (function () {
       "footer.terms": "Terms of Use",
 
       "modal.title": "Pay with crypto",
+      "modal.qrTitle": "Scan to pay — fastest option",
+      "modal.qrHint": "Point your wallet's camera at the code. The address and amount are filled in for you — just confirm and send.",
+      "modal.qrHintManual": "Scan to fill the receiving address, then enter the amount shown below manually (TRC-20 wallets do not read amounts from QR codes).",
+      "modal.qrManualTitle": "Or copy the details manually",
+      "modal.qrAlt": "Payment QR code",
       "modal.addressLabel": "Wallet address",
       "modal.copy": "Copy",
       "modal.copied": "Copied!",
@@ -171,6 +176,11 @@ window.I18N = (function () {
       "footer.terms": "شروط الاستخدام",
 
       "modal.title": "ادفع بالعملات الرقمية",
+      "modal.qrTitle": "امسح للدفع — الطريقة الأسرع",
+      "modal.qrHint": "وجّه كاميرا محفظتك إلى الرمز، وسيتم تعبئة العنوان والمبلغ تلقائيًا — فقط أكّد وأرسل.",
+      "modal.qrHintManual": "امسح لتعبئة عنوان الاستلام، ثم أدخل المبلغ الظاهر أدناه يدويًا (محافظ TRC-20 لا تقرأ المبلغ من رمز QR).",
+      "modal.qrManualTitle": "أو انسخ البيانات يدويًا",
+      "modal.qrAlt": "رمز الدفع السريع",
       "modal.addressLabel": "عنوان المحفظة",
       "modal.copy": "نسخ",
       "modal.copied": "تم النسخ!",

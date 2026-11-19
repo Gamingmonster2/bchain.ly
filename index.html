@@ -42,6 +42,7 @@
 		<script src="./assets/js/lib/aos.js"></script>
 		<script src="./assets/js/i18n.js" defer></script>
 		<script src="./assets/js/products.js" defer></script>
+		<script src="./assets/js/lib/qrcode.js" defer></script>
 		<script src="./assets/js/main.js" defer></script>
 	</head>
 
@@ -266,17 +267,30 @@
 
 				<div class="network-tabs" id="network-tabs" role="tablist"></div>
 
-				<div class="payment-detail">
-					<label for="wallet-address" data-i18n="modal.addressLabel">Wallet address</label>
-					<div class="address-row">
-						<input id="wallet-address" type="text" readonly />
-						<button type="button" id="copy-address" class="secondary-button" data-i18n="modal.copy">Copy</button>
+				<div class="qr-payment" id="qr-payment">
+					<p class="qr-title" data-i18n="modal.qrTitle">Scan to pay — fastest option</p>
+					<div class="qr-frame" id="payment-qr" data-uri=""></div>
+					<p class="qr-hint" id="qr-hint" data-i18n="modal.qrHint">
+						Point your wallet's camera at the code. The address and amount are filled in for you — just confirm and send.
+					</p>
+				</div>
+
+				<details class="qr-manual">
+					<summary data-i18n="modal.qrManualTitle">Or copy the details manually</summary>
+					<div class="payment-detail">
+						<label for="wallet-address" data-i18n="modal.addressLabel">Wallet address</label>
+						<div class="address-row">
+							<input id="wallet-address" type="text" readonly />
+							<button type="button" id="copy-address" class="secondary-button" data-i18n="modal.copy">Copy</button>
+						</div>
+						<p class="copy-feedback" id="copy-feedback" aria-live="polite"></p>
+
+						<label for="pay-amount" data-i18n="modal.amountLabel">Amount to send</label>
+						<input id="pay-amount" type="text" readonly />
 					</div>
-					<p class="copy-feedback" id="copy-feedback" aria-live="polite"></p>
+				</details>
 
-					<label for="pay-amount" data-i18n="modal.amountLabel">Amount to send</label>
-					<input id="pay-amount" type="text" readonly />
-
+				<div class="payment-detail">
 					<p class="payment-note" data-i18n="modal.warning">
 						After sending, copy your transaction hash and contact us to confirm your order. Payments are verified manually.
 					</p>

@@ -5,6 +5,9 @@
   var modal = document.getElementById("payment-modal");
   var modalProduct = document.getElementById("modal-product");
   var networkTabs = document.getElementById("network-tabs");
+  var qrPayment = document.getElementById("qr-payment");
+  var qrContainer = document.getElementById("payment-qr");
+  var qrHint = document.getElementById("qr-hint");
   var addressInput = document.getElementById("wallet-address");
   var amountInput = document.getElementById("pay-amount");
   var copyButton = document.getElementById("copy-address");
@@ -147,6 +150,75 @@
     });
   }
 
+  /* ---------- Payment QR ----------
+     BIP-21 for BTC, ERC-681 for ETH / USDT-ERC20, plain address for TRC-20
+     (Tron wallets have no agreed URI format for token + amount). */
+  var USDT_ERC20_CONTRACT = "0xdac17f958d2ee523a2206206994597c13d831ec7";
+
+  function numericPrice(raw) {
+    var match = String(raw || "").match(/[0-9]+(?:\.[0-9]+)?/);
+    return match ? match[0] : "0";
+  }
+
+  function atomicAmount(amount, decimals) {
+    var parts = String(amount).split(".");
+    var whole = parts[0] || "0";
+    var frac = parts[1] || "";
+    while (frac.length < decimals) frac += "0";
+    frac = frac.slice(0, decimals);
+    return (whole + frac).replace(/^0+/, "") || "0";
+  }
+
+  function scientificAmount(amount, decimals) {
+    var atomic = atomicAmount(amount, decimals);
+    if (atomic === "0") return "0";
+    var mantissa = atomic.charAt(0) + "." + atomic.slice(1).replace(/0+$/, "");
+    if (mantissa.charAt(mantissa.length - 1) === ".") mantissa = mantissa.slice(0, -1);
+    return mantissa + "e" + (atomic.length - 1);
+  }
+
+  function paymentUri(product, network) {
+    var amount = numericPrice(product.price[network.id] || product.price["usdt-trc20"]);
+    if (network.id === "btc") return "bitcoin:" + network.address + "?amount=" + amount;
+    if (network.id === "eth") return "ethereum:" + network.address + "?value=" + scientificAmount(amount, 18);
+    if (network.id === "usdt-erc20") {
+      return "ethereum:" + USDT_ERC20_CONTRACT + "/transfer?address=" +
+        network.address + "&uint256=" + atomicAmount(amount, 6);
+    }
+    return network.address;
+  }
+
+  function renderQr(product, network) {
+    if (!qrContainer) return;
+    var tr = window.I18N ? window.I18N.t.bind(window.I18N) : function (key) { return key; };
+
+    if (typeof window.qrcode !== "function") {
+      if (qrPayment) qrPayment.hidden = true;
+      return;
+    }
+    if (qrPayment) qrPayment.hidden = false;
+
+    var uri = paymentUri(product, network);
+    try {
+      var qr = window.qrcode(0, "M");
+      qr.addData(uri);
+      qr.make();
+      qrContainer.innerHTML = qr.createSvgTag({
+        cellSize: 4,
+        margin: 4,
+        scalable: true,
+        alt: { text: tr("modal.qrAlt") }
+      });
+      qrContainer.setAttribute("data-uri", uri);
+      if (qrHint) {
+        qrHint.textContent = tr(network.id === "usdt-trc20" ? "modal.qrHintManual" : "modal.qrHint");
+      }
+    } catch (error) {
+      qrContainer.innerHTML = "";
+      if (qrPayment) qrPayment.hidden = true;
+    }
+  }
+
   function updatePaymentDetails() {
     var product = findProduct(activeProduct);
     var network = window.CATALOG.networks.filter(function (n) {
@@ -160,6 +232,7 @@
     }
     if (addressInput) addressInput.value = network.address;
     if (amountInput) amountInput.value = product.price[network.id] || product.price["usdt-trc20"] || "";
+    renderQr(product, network);
     if (copyFeedback) copyFeedback.textContent = "";
     if (orderFeedback) orderFeedback.textContent = "";
     if (orderError) orderError.textContent = "";

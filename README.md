@@ -9,7 +9,8 @@ Bilingual (English / Arabic) static storefront built on the [elhussary/nft-hub](
 - Static catalog of 6 digital artworks defined in `assets/js/products.js`, priced at about $2–$5 (converted to BTC / ETH / USDT)
 - Click-to-enlarge lightbox showing reduced, watermarked previews (`© bchain.ly · 18.11.2026`); no download button, right-click and drag are blocked on previews
 - Full-resolution originals are kept locally in `private-originals/` (git-ignored) and delivered by email after payment
-- Crypto payment modal with network tabs (BTC, ETH, USDT-TRC20, USDT-ERC20), copyable wallet address and amount, tx-hash validation and a block-explorer link
+- Crypto payment modal with network tabs (BTC, ETH, USDT-TRC20, USDT-ERC20) and a **payment QR code** generated for the selected product and network: BIP-21 for BTC, ERC-681 for ETH / USDT-ERC20, plain address for USDT-TRC20. The address and amount can still be copied manually under "Or copy the details manually".
+- tx-hash validation and a block-explorer link
 - Order form in the modal: buyer submits email + transaction hash, which opens a ready-to-send email with all order details
 - FAQ accordion, responsive layout, AOS scroll animations
 - No build step — plain HTML, CSS and JavaScript, ready for Cloudflare Pages
