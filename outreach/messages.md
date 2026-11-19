@@ -112,6 +112,8 @@ All 50 domains were checked and are live.
 | Flat6Labs | ✅ Sent — form returned `success: true` (submitted with name `w` before "Saif" was chosen) |
 | Techstars | ✅ Sent — HubSpot partner form POST returned HTTP 200 + thank-you (name `Saif`) |
 | Animoca Brands | ✅ Sent — Webflow form showed "Thank you! Your submission has been received!" |
+| Wayra | ⚠️ Form filled and submit clicked — no confirmation page shown |
+| Consensys | ⚠️ Form filled and submit clicked — no confirmation page shown |
 | Wamda | ⛔ CAPTCHA — opened in Chrome for manual solve (name `Saif`, email `w@w.com.ly`) |
 | Startup Grind | ⛔ reCAPTCHA — opened in Chrome for manual solve (name `Saif`, email `w@w.com.ly`) |
 | AstroLabs | ⚠️ Phone-only lead form, no message field — not submitted |
